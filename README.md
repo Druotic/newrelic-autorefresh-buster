@@ -20,4 +20,4 @@ have been warned.
 Automatically transform the dynamic (auto-refreshing) ranges to static ranges
 to disable refreshing 💰💰💰
 
-![See it in action!](./docs/recording.mp4)
+https://github.com/Druotic/newrelic-autorefresh-buster/assets/1551522/9e7d8a48-bb2d-432b-b1f7-80cd72e966be
