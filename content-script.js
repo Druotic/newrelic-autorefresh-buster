@@ -13,7 +13,7 @@ function simulateClick(element) {
 window.addEventListener("load", function () {
   setInterval(() => {
     const pickerBtn = document.querySelector(
-      "button.AAUNAC-wnd-TimePicker-triggerContent",
+      "button.nr-css-DateTimeRangePicker-trigger",
     );
 
     // This label is only present if the static range has already been set.
@@ -26,16 +26,20 @@ window.addEventListener("load", function () {
     simulateClick(pickerBtn);
 
     setTimeout(() => {
-      const setCustomBtn = document.querySelector(
-        "div.AAUNAC-wnd-TimePicker-customRange",
-      );
-      simulateClick(setCustomBtn);
+      const datePopper = document.querySelector("div.nr-css-Popper");
+
+      const setCustomElement = datePopper.querySelector('[title="Set custom"]');
+      const clickableElement = setCustomElement.parentElement;
+      simulateClick(clickableElement);
 
       setTimeout(() => {
-        const applyBtn = document.querySelector(
-          "button.nr-css-DTRP-CustomDialog-applyButton",
-        );
-        simulateClick(applyBtn);
+        const popperSpans = datePopper.querySelectorAll("span");
+
+        for (const span of popperSpans) {
+          if (span.textContent === "Apply") {
+            simulateClick(span.parentElement);
+          }
+        }
 
         console.log(
           "Set date range picker to static range to disable auto-refresh. Cha-ching $$$",
