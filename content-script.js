@@ -12,6 +12,14 @@ function simulateClick(element) {
 
 window.addEventListener("load", function () {
   setInterval(() => {
+    // We have to set up the interval on any route on the domain, otherwise
+    // we miss our chance to set up the interval when the user navigates via
+    // client-side routing to the dashboard.
+    // Because we do this, we need to filter all other paths and exit early for
+    // those. This is dirty, but it does the trick for now.
+    if (!/\/dashboards\/detail\/.*/.test(window.location.pathname)) {
+      return;
+    }
     const pickerBtn = document.querySelector(
       "button.nr-css-DateTimeRangePicker-trigger",
     );

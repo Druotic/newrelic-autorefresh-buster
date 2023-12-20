@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "content_scripts": [
     {
-      "matches": ["https://one.newrelic.com/dashboards/detail/*"],
+      "matches": ["https://one.newrelic.com/*"],
       "js": ["content-script.js"]
     }
   ],
